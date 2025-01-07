@@ -2,13 +2,17 @@
 
 namespace EdemotsCourses\EsgiDesignPattern\Exercice5;
 
+<<<<<<< HEAD
 use PhpParser\Builder\Interface_;
 
+=======
+>>>>>>> f32c51403dc3b0eb87861b1856487ab1ddf450fc
 interface Beverage
 {
     public function getDescription(): string;
     public function getCost(): float;
 }
+<<<<<<< HEAD
 
 class Expresso implements Beverage
 {
@@ -100,3 +104,5 @@ class SyrupDecorator extends BeverageDecorator
         return $this->beverage->getCost() + 0.75;
     }
 }
+=======
+>>>>>>> f32c51403dc3b0eb87861b1856487ab1ddf450fc
