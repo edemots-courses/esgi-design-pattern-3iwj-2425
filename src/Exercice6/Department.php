@@ -4,8 +4,7 @@ namespace EdemotsCourses\EsgiDesignPattern\Exercice6;
 
 class Department implements OrganizationUnit
 {
-<<<<<<< HEAD
-    private int  $id;
+    private int $id;
     private string $name;
     private array $units;
 
@@ -16,10 +15,7 @@ class Department implements OrganizationUnit
         $this->units = [];
     }
 
-    public function getId(): int    
-=======
     public function getId(): int
->>>>>>> upstream/main
     {
         return $this->id;
     }
@@ -28,34 +24,37 @@ class Department implements OrganizationUnit
     {
         return $this->name;
     }
-<<<<<<< HEAD
 
-    public function addUnit(OrganizationUnit $unit): void
+    public function addOrganizationUnit(OrganizationUnit $unit): void
     {
         $this->units[] = $unit;
     }
 
-    public function removeUnit(OrganizationUnit $unit): void
-        {
-        $index = array_search($unit, $this->units);
-        if ($index !== false) {
-            unset($this->units[$index]);
+    public function removeOrganizationUnit(OrganizationUnit $unit): void
+    {
+        $key = array_search($unit, $this->units, true);
+        if ($key !== false) {
+            unset($this->units[$key]);
+            $this->units = array_values($this->units);
         }
     }
 
     public function displayDetails(int $indentation = 0): string
     {
-        $indent = str_repeat(' ', $indentation);
-        $output = sprintf('%sDepartment %s (%s)', $indent, $this->name, $this->id);
+        $indent = str_repeat("    ", $indentation);
+        $output = sprintf(
+            "%sDepartment ID : %d\n%sDepartment name : %s\n%sDepartment details :",
+            $indent,
+            $this->id,
+            $indent,
+            $this->name,
+            $indent
+        );
+
         foreach ($this->units as $unit) {
-            $output .= $unit->displayDetails($indentation + 1) . "\n";
+            $output .= "\n\n" . $unit->displayDetails($indentation + 1);
         }
 
         return $output;
     }
 }
-
-
-=======
-}
->>>>>>> upstream/main
