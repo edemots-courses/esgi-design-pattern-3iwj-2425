@@ -8,3 +8,4 @@ interface ModernPaymentGateway
     public function verifyPayment(string $paymentId): object;
     public function refund(string $paymentId): object;
 }
+

@@ -35,3 +35,4 @@ class PayPalGateway implements ModernPaymentGateway
         ];
     }
 }
+
