@@ -26,7 +26,7 @@ class Car implements Vehicle
     }
 }
 
-class Truck implements Vehicule
+class Truck implements Vehicle
 {
     protected float $speed = 0;
 
