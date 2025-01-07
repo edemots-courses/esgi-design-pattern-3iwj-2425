@@ -2,36 +2,46 @@
 
 namespace EdemotsCourses\EsgiDesignPattern\Exercice4;
 
-class PayPalGateway implements ModernPaymentGateway
+class PayPalAdapter implements LegacyPaymentProcessor
 {
-    public function charge(array $paymentData): array
+    private PayPalGateway $paypalGateway;
+
+    public function __construct(PayPalGateway $paypalGateway)
     {
-        // Simulate PayPal API response
+        $this->paypalGateway = $paypalGateway;
+    }
+
+    public function processPayment(float $amount, string $currency, array $paymentDetails): array
+    {
+        if ($amount <= 0) {
+            throw new \InvalidArgumentException('Invalid amount. Amount must be greater than zero.');
+        }
+
+        $response = $this->paypalGateway->charge([
+            'amount' => $amount,
+            'currency' => $currency,
+            'details' => $paymentDetails,
+        ]);
+
+        if ($response['state'] !== 'approved') {
+            throw new \RuntimeException('Payment failed with PayPal.');
+        }
+
         return [
-            'payment_id' => 'pp_' . uniqid(),
-            'state' => 'approved',
-            'amount' => [
-                'total' => $paymentData['amount'],
-                'currency' => $paymentData['currency']
-            ],
-            'create_time' => date('Y-m-d H:i:s')
+            'transactionId' => $response['payment_id'],
+            'status' => $response['state'],
         ];
     }
 
-    public function verifyPayment(string $paymentId): object
+    public function getPaymentStatus(string $transactionId): string
     {
-        return (object)[
-            'payment_id' => $paymentId,
-            'state' => str_starts_with($paymentId, 'pp_') ? 'approved' : 'failed'
-        ];
+        $status = $this->paypalGateway->verifyPayment($transactionId);
+        return $status->state === 'approved' ? 'approved' : 'failed';
     }
 
-    public function refund(string $paymentId): object
+    public function refundPayment(string $transactionId): bool
     {
-        return (object)[
-            'payment_id' => $paymentId,
-            'refund_id' => 'refpp_' . uniqid(),
-            'state' => 'completed'
-        ];
+        $refund = $this->paypalGateway->refund($transactionId);
+        return $refund->state === 'completed';
     }
 }
