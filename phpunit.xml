@@ -34,7 +34,11 @@
             <file>tests/Unit/Structural/Exercice5Test.php</file>
         </testsuite>
         <testsuite name="ex6">
+<<<<<<< HEAD
             <file>tests/Unit/Structural/Exercice5Test.php</file>
+=======
+            <file>tests/Unit/Structural/Exercice6Test.php</file>
+>>>>>>> upstream/main
         </testsuite>
     </testsuites>
 </phpunit>

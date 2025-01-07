@@ -4,6 +4,7 @@ namespace EdemotsCourses\EsgiDesignPattern\Exercice6;
 
 class Department implements OrganizationUnit
 {
+<<<<<<< HEAD
     private int  $id;
     private string $name;
     private array $units;
@@ -16,6 +17,9 @@ class Department implements OrganizationUnit
     }
 
     public function getId(): int    
+=======
+    public function getId(): int
+>>>>>>> upstream/main
     {
         return $this->id;
     }
@@ -24,6 +28,7 @@ class Department implements OrganizationUnit
     {
         return $this->name;
     }
+<<<<<<< HEAD
 
     public function addUnit(OrganizationUnit $unit): void
     {
@@ -51,3 +56,6 @@ class Department implements OrganizationUnit
 }
 
 
+=======
+}
+>>>>>>> upstream/main

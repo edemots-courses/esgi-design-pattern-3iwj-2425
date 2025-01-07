@@ -4,6 +4,7 @@ namespace EdemotsCourses\EsgiDesignPattern\Exercice6;
 
 class Organization implements OrganizationUnit
 {
+<<<<<<< HEAD
     private string $name;
     private array $units;
 
@@ -13,10 +14,13 @@ class Organization implements OrganizationUnit
         $this->units = [];
     }
 
+=======
+>>>>>>> upstream/main
     public function getName(): string
     {
         return $this->name;
     }
+<<<<<<< HEAD
 
     public function addUnit(OrganizationUnit $unit): void
     {
@@ -40,4 +44,6 @@ class Organization implements OrganizationUnit
 
         return $output;
     }
+=======
+>>>>>>> upstream/main
 }
