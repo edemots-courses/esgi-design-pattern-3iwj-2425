@@ -9,20 +9,20 @@ class Car implements Vehicule
 
     public function __construct()
     {
-        $this->speed = 0.0; // Initialisation de la vitesse à 0 m/s
+        $this->speed = 0.0;
     }
 
     public function accelerate(): float
     {
-        $this->speed += 3.5; // Augmentation de la vitesse de 3.5 m/s
+        $this->speed += 3.5;
         return $this->speed;
     }
 
     public function break(): float
     {
-        $this->speed -= 5.0; // Réduction de la vitesse de 5.0 m/s
+        $this->speed -= 5.0;
         if ($this->speed < 0) {
-            $this->speed = 0.0; // La vitesse ne peut pas être négative
+            $this->speed = 0.0;
         }
         return $this->speed;
     }
