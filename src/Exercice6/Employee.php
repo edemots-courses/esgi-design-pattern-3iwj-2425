@@ -4,18 +4,29 @@ namespace EdemotsCourses\EsgiDesignPattern\Exercice6;
 
 class Employee implements OrganizationUnit
 {
-    public function getId(): int
+    private int $id;
+    private string $name;
+    private string $jobTitle;
+
+    public function __construct(int $id, string $name, string $jobTitle)
     {
-        return $this->id;
+        $this->id = $id;
+        $this->name = $name;
+        $this->jobTitle = $jobTitle;
     }
 
-    public function getName(): string
+    public function displayDetails(int $indentation = 0): string
     {
-        return $this->name;
-    }
+        $prefix = str_repeat('    ', $indentation);
 
-    public function getJobTitle(): string
-    {
-        return $this->jobTitle;
+        return sprintf(
+            "%sEmployee ID : %d\r\n%sEmployee name : %s\r\n%sEmployee job title : %s\r\n",
+            $prefix,
+            $this->id,
+            $prefix,
+            $this->name,
+            $prefix,
+            $this->jobTitle
+        );
     }
 }
