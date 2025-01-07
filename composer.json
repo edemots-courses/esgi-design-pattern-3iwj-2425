@@ -2,7 +2,7 @@
     "name": "edemots-courses/esgi-design-pattern",
     "type": "project",
     "require": {
-        "phpunit/phpunit": "^11.5"
+        "phpunit/phpunit": "*"
     },
     "license": "MIT",
     "autoload": {

@@ -32,7 +32,7 @@ final class Exercice1Test extends TestCase
     public function testCarIsVehicle()
     {
         $car = new Car();
-        $this->assertInstanceOf(Vehicle::class, $car);
+        $this->assertInstanceOf(Vehicule::class, $car);
     }
 
     public function testTruckHasZeroSpeed()
@@ -58,6 +58,6 @@ final class Exercice1Test extends TestCase
     public function testTruckIsVehicle()
     {
         $car = new Truck();
-        $this->assertInstanceOf(Vehicle::class, $car);
+        $this->assertInstanceOf(Vehicule::class, $car);
     }
 }
