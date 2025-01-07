@@ -2,13 +2,13 @@
 
 namespace EdemotsCourses\EsgiDesignPattern\Exercice1;
 
-interface Vehicule
+interface Vehicle
 {
     public function accelerate(): float;
     public function break(): float;
 }
 
-class Car implements Vehicule
+class Car implements Vehicle
 {
     protected float $speed = 0;
 
