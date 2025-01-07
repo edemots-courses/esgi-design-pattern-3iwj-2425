@@ -4,43 +4,44 @@ namespace EdemotsCourses\EsgiDesignPattern\Exercice4;
 
 class PayPalPaymentAdapter implements LegacyPaymentProcessor
 {
-    private PayPalGateway $paypal;
+    private PayPalGateway $paypalGateway;
 
-    public function __construct() 
+    public function __construct(PayPalGateway $paypalGateway)
     {
-        $this->paypal = new PayPalGateway();
+        $this->paypalGateway = $paypalGateway;
     }
 
-    public function processPayment(float $amount, string $currency, array $paymentDetails): array 
+    public function processPayment(float $amount, string $currency, array $paymentDetails): array
     {
         if ($amount <= 0) {
             throw new \InvalidArgumentException("Invalid amount");
         }
-
-        $response = $this->paypal->charge([
+    
+        $paypalPayment = $this->paypalGateway->makePayment([
             'amount' => $amount,
-            'currency' => $currency
+            'currency' => $currency,
+            'email' => $paymentDetails['email'] ?? null,
         ]);
-
+    
         return [
-            'transaction_id' => $response['id'],
-            'status' => 'success',
-            'amount' => $response['amount'],
-            'currency' => $currency
+            'transaction_id' => $paypalPayment['payment_id'],
+            'status' => $paypalPayment['state'] === 'approved' ? 'success' : 'failed',
+            'amount' => $paypalPayment['amount']['total'],
+            'currency' => $paypalPayment['amount']['currency'],
+            'timestamp' => $paypalPayment['create_time'],
         ];
     }
+    
 
-    public function getPaymentStatus(string $transactionId): string 
+    public function getPaymentStatus(string $transactionId): string
     {
-        if (!str_starts_with($transactionId, 'pp_')) {
-            return 'failed';
-        }
-        return 'success';
+        $payment = $this->paypalGateway->verifyPayment($transactionId);
+        return $payment->state === 'approved' ? 'success' : 'failed';
     }
 
-    public function refundPayment(string $transactionId): bool 
+    public function refundPayment(string $transactionId): bool
     {
-        $refund = $this->paypal->refund($transactionId);
-        return $refund->status === 'refunded';
+        $refund = $this->paypalGateway->refund($transactionId);
+        return $refund->state === 'completed';
     }
 }
