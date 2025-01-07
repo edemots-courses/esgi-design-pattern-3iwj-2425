@@ -69,7 +69,7 @@ class Exercice5Test extends TestCase
         $this->assertEquals($price, $beverage->getCost());
     }
 
-    public static function beverageWithDecoratorProvider()
+    public static function beverageWithStackedDecoratorProvider()
     {
         return [
             [Expresso::class, [MilkDecorator::class, WhipedCreamDecorator::class], 3.5],
