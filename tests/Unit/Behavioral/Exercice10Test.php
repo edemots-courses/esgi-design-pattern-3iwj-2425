@@ -3,6 +3,9 @@
 use EdemotsCourses\EsgiDesignPattern\Exercice10\PaymentMethod;
 use EdemotsCourses\EsgiDesignPattern\Exercice10\PaymentProcessor;
 use PHPUnit\Framework\TestCase;
+use EdemotsCourses\EsgiDesignPattern\Exercice10\CreditCardPayment;
+use EdemotsCourses\EsgiDesignPattern\Exercice10\PayPalPayment;
+use EdemotsCourses\EsgiDesignPattern\Exercice10\CryptoPayment;
 
 class Exercice10Test extends TestCase
 {

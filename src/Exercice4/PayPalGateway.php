@@ -34,4 +34,19 @@ class PayPalGateway implements ModernPaymentGateway
             'state' => 'completed'
         ];
     }
+
+    public function makePayment(array $paymentData): array
+{
+    return [
+        'payment_id' => 'pp_' . uniqid(),
+        'state' => 'approved',
+        'amount' => [
+            'total' => $paymentData['amount'],
+            'currency' => $paymentData['currency']
+        ],
+        'create_time' => date('Y-m-d H:i:s')
+    ];
 }
+}
+
+

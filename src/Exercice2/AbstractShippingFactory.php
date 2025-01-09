@@ -17,3 +17,27 @@ abstract class AbstractShippingFactory
         ];
     }
 }
+
+class GroundShippingFactory extends AbstractShippingFactory
+{
+    public function createShippingMethod(): ShippingMethod
+    {
+        return new GroundShipping();
+    }
+}
+
+class AirshippingFactory extends AbstractShippingFactory
+{
+    public function createShippingMethod(): ShippingMethod
+    {
+        return new Airshipping();
+    }
+}
+
+class SeaShippingFactory extends AbstractShippingFactory
+{
+    public function createShippingMethod(): ShippingMethod
+    {
+        return new SeaShipping();
+    }
+}
