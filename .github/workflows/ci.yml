@@ -78,6 +78,10 @@ jobs:
       ex5: ${{ steps.filter.outputs.ex5 }}
       ex6: ${{ steps.filter.outputs.ex6 }}
       ex7: ${{ steps.filter.outputs.ex7 }}
+<<<<<<< HEAD
+=======
+      ex8: ${{ steps.filter.outputs.ex8 }}
+>>>>>>> upstream/main
     steps:
     - uses: dorny/paths-filter@v3
       id: filter
@@ -97,6 +101,11 @@ jobs:
             - 'src/Exercice6/**'
           ex7:
             - 'src/Exercice7/**'
+<<<<<<< HEAD
+=======
+          ex8:
+            - 'src/Exercice8/**'
+>>>>>>> upstream/main
 
   ex1:
     needs: changes
@@ -209,3 +218,22 @@ jobs:
       with:
         testsuite: ex7
         args: --testdox
+<<<<<<< HEAD
+=======
+
+  ex8:
+    needs: changes
+    if: ${{ needs.changes.outputs.ex8 == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+    - uses: actions/checkout@v3
+    - uses: php-actions/composer@v6
+    - name: Exercice 8
+      id: ex8
+      uses: php-actions/phpunit@master
+      with:
+        testsuite: ex8
+        args: --testdox
+>>>>>>> upstream/main
