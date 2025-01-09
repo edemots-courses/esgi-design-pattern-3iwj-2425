@@ -1,4 +1,3 @@
-
 <?php
 
 namespace EdemotsCourses\EsgiDesignPattern\Exercice10;

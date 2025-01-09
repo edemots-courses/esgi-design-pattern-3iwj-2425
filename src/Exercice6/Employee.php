@@ -14,7 +14,6 @@ class Employee implements OrganizationUnit
         $this->name = $name;
         $this->jobTitle = $jobTitle;
     }
-
     public function getId(): int
     {
         return $this->id;

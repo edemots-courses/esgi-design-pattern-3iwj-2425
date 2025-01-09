@@ -1,4 +1,5 @@
 <?php
+
 namespace EdemotsCourses\EsgiDesignPattern\Exercice6;
 
 class Organization implements OrganizationUnit
@@ -10,7 +11,6 @@ class Organization implements OrganizationUnit
     {
         $this->name = $name;
     }
-
     public function getName(): string
     {
         return $this->name;
