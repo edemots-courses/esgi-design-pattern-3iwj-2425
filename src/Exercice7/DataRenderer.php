@@ -13,3 +13,18 @@ abstract class DataRenderer
 
     abstract public function render(array $data): string;
 }
+class UserDataRenderer extends DataRenderer
+{
+    public function render(array $data): string
+    {
+        return $this->formatter->format($data);
+    }
+}
+
+class ProductDataRenderer extends DataRenderer
+{
+    public function render(array $data): string
+    {
+        return $this->formatter->format($data);
+    }
+}

@@ -39,7 +39,9 @@ class Exercice5Test extends TestCase
         $decoratedBeverage = new $decoratorClass($beverage);
 
         $this->assertInstanceOf(Beverage::class, $decoratedBeverage);
+        $this->assertEquals($price, $beverage->getCost());
         $this->assertEquals($price, $decoratedBeverage->getCost());
+
     }
 
     public static function beverageWithDecoratorProvider()
@@ -68,6 +70,7 @@ class Exercice5Test extends TestCase
         $this->assertInstanceOf(Beverage::class, $beverage);
         $this->assertEquals($price, $beverage->getCost());
     }
+
 
     public static function beverageWithDoubledDecoratorProvider()
     {
