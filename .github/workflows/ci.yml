@@ -89,6 +89,10 @@ jobs:
 >>>>>>> upstream/main
 =======
       ex10: ${{ steps.filter.outputs.ex10 }}
+<<<<<<< HEAD
+>>>>>>> upstream/main
+=======
+      gilded_rose: ${{ steps.filter.outputs.gilded_rose }}
 >>>>>>> upstream/main
     steps:
     - uses: dorny/paths-filter@v3
@@ -123,6 +127,11 @@ jobs:
 =======
           ex10:
             - 'src/Exercice10/**'
+<<<<<<< HEAD
+>>>>>>> upstream/main
+=======
+          gilded_rose:
+            - 'src/TheGildedRose/**'
 >>>>>>> upstream/main
 
   ex1:
@@ -291,5 +300,24 @@ jobs:
       uses: php-actions/phpunit@master
       with:
         testsuite: ex10
+        args: --testdox
+<<<<<<< HEAD
+>>>>>>> upstream/main
+=======
+
+  gilded_rose:
+    needs: changes
+    if: ${{ needs.changes.outputs.gilded_rose == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+    - uses: actions/checkout@v3
+    - uses: php-actions/composer@v6
+    - name: The Gilded Rose
+      id: gilded_rose
+      uses: php-actions/phpunit@master
+      with:
+        testsuite: gilded_rose
         args: --testdox
 >>>>>>> upstream/main
