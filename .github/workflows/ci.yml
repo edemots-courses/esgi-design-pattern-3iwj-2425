@@ -23,32 +23,32 @@ jobs:
       ex10: ${{ steps.filter.outputs.ex10 }}
       gilded_rose: ${{ steps.filter.outputs.gilded_rose }}
     steps:
-    - uses: dorny/paths-filter@v3
-      id: filter
-      with:
-        filters: |
-          ex1:
-            - 'src/Exercice1/**'
-          ex2:
-            - 'src/Exercice2/**'
-          ex3:
-            - 'src/Exercice3/**'
-          ex4:
-            - 'src/Exercice4/**'
-          ex5:
-            - 'src/Exercice5/**'
-          ex6:
-            - 'src/Exercice6/**'
-          ex7:
-            - 'src/Exercice7/**'
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            ex1:
+              - 'src/Exercice1/**'
+            ex2:
+              - 'src/Exercice2/**'
+            ex3:
+              - 'src/Exercice3/**'
+            ex4:
+              - 'src/Exercice4/**'
+            ex5:
+              - 'src/Exercice5/**'
+            ex6:
+              - 'src/Exercice6/**'
+            ex7:
+              - 'src/Exercice7/**'
           ex8:
-            - 'src/Exercice8/**'
+            - "src/Exercice8/**"
           ex9:
-            - 'src/Exercice9/**'
+            - "src/Exercice9/**"
           ex10:
-            - 'src/Exercice10/**'
+            - "src/Exercice10/**"
           gilded_rose:
-            - 'src/TheGildedRose/**'
+            - "src/TheGildedRose/**"
 
   ex1:
     needs: changes
@@ -57,14 +57,14 @@ jobs:
     permissions:
       pull-requests: read
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
-    - name: Exercice 1
-      id: ex1
-      uses: php-actions/phpunit@master
-      with:
-        testsuite: ex1
-        args: --testdox
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - name: Exercice 1
+        id: ex1
+        uses: php-actions/phpunit@master
+        with:
+          testsuite: ex1
+          args: --testdox
 
   ex2:
     needs: changes
@@ -73,14 +73,14 @@ jobs:
     permissions:
       pull-requests: read
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
-    - name: Exercice 2
-      id: ex2
-      uses: php-actions/phpunit@master
-      with:
-        testsuite: ex2
-        args: --testdox
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - name: Exercice 2
+        id: ex2
+        uses: php-actions/phpunit@master
+        with:
+          testsuite: ex2
+          args: --testdox
 
   ex3:
     needs: changes
@@ -89,14 +89,14 @@ jobs:
     permissions:
       pull-requests: read
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
-    - name: Exercice 3
-      id: ex3
-      uses: php-actions/phpunit@master
-      with:
-        testsuite: ex3
-        args: --testdox
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - name: Exercice 3
+        id: ex3
+        uses: php-actions/phpunit@master
+        with:
+          testsuite: ex3
+          args: --testdox
 
   ex4:
     needs: changes
@@ -105,14 +105,14 @@ jobs:
     permissions:
       pull-requests: read
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
-    - name: Exercice 4
-      id: ex4
-      uses: php-actions/phpunit@master
-      with:
-        testsuite: ex4
-        args: --testdox
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - name: Exercice 4
+        id: ex4
+        uses: php-actions/phpunit@master
+        with:
+          testsuite: ex4
+          args: --testdox
 
   ex5:
     needs: changes
@@ -121,14 +121,14 @@ jobs:
     permissions:
       pull-requests: read
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
-    - name: Exercice 5
-      id: ex5
-      uses: php-actions/phpunit@master
-      with:
-        testsuite: ex5
-        args: --testdox
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - name: Exercice 5
+        id: ex5
+        uses: php-actions/phpunit@master
+        with:
+          testsuite: ex5
+          args: --testdox
 
   ex6:
     needs: changes
@@ -137,14 +137,14 @@ jobs:
     permissions:
       pull-requests: read
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
-    - name: Exercice 6
-      id: ex6
-      uses: php-actions/phpunit@master
-      with:
-        testsuite: ex6
-        args: --testdox
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - name: Exercice 6
+        id: ex6
+        uses: php-actions/phpunit@master
+        with:
+          testsuite: ex6
+          args: --testdox
 
   ex7:
     needs: changes
@@ -153,14 +153,14 @@ jobs:
     permissions:
       pull-requests: read
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
-    - name: Exercice 7
-      id: ex7
-      uses: php-actions/phpunit@master
-      with:
-        testsuite: ex7
-        args: --testdox
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - name: Exercice 7
+        id: ex7
+        uses: php-actions/phpunit@master
+        with:
+          testsuite: ex7
+          args: --testdox
 
   ex8:
     needs: changes
@@ -169,14 +169,14 @@ jobs:
     permissions:
       pull-requests: read
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
-    - name: Exercice 8
-      id: ex8
-      uses: php-actions/phpunit@master
-      with:
-        testsuite: ex8
-        args: --testdox
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - name: Exercice 8
+        id: ex8
+        uses: php-actions/phpunit@master
+        with:
+          testsuite: ex8
+          args: --testdox
 
   ex9:
     needs: changes
@@ -185,14 +185,14 @@ jobs:
     permissions:
       pull-requests: read
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
-    - name: Exercice 9
-      id: ex9
-      uses: php-actions/phpunit@master
-      with:
-        testsuite: ex9
-        args: --testdox
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - name: Exercice 9
+        id: ex9
+        uses: php-actions/phpunit@master
+        with:
+          testsuite: ex9
+          args: --testdox
 
   ex10:
     needs: changes
@@ -201,14 +201,14 @@ jobs:
     permissions:
       pull-requests: read
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
-    - name: Exercice 10
-      id: ex10
-      uses: php-actions/phpunit@master
-      with:
-        testsuite: ex10
-        args: --testdox
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - name: Exercice 10
+        id: ex10
+        uses: php-actions/phpunit@master
+        with:
+          testsuite: ex10
+          args: --testdox
 
   gilded_rose:
     needs: changes
@@ -217,11 +217,11 @@ jobs:
     permissions:
       pull-requests: read
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
-    - name: The Gilded Rose
-      id: gilded_rose
-      uses: php-actions/phpunit@master
-      with:
-        testsuite: gilded_rose
-        args: --testdox
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - name: The Gilded Rose
+        id: gilded_rose
+        uses: php-actions/phpunit@master
+        with:
+          testsuite: gilded_rose
+          args: --testdox
