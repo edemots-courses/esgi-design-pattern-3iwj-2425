@@ -81,7 +81,6 @@ jobs:
 <<<<<<< HEAD
 =======
       ex8: ${{ steps.filter.outputs.ex8 }}
->>>>>>> upstream/main
     steps:
     - uses: dorny/paths-filter@v3
       id: filter
@@ -105,7 +104,6 @@ jobs:
 =======
           ex8:
             - 'src/Exercice8/**'
->>>>>>> upstream/main
 
   ex1:
     needs: changes
@@ -236,4 +234,3 @@ jobs:
       with:
         testsuite: ex8
         args: --testdox
->>>>>>> upstream/main
